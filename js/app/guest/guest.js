@@ -293,7 +293,6 @@ export const guest = (() => {
     const booting = async () => {
         animateSvg();
         countDownDate();
-        showGuestName();
         modalImageClick();
         normalizeArabicFont();
         buildGoogleCalendar();
@@ -320,10 +319,45 @@ export const guest = (() => {
         lang.init();
         offline.init();
         comment.init();
-        progress.init();
 
         config = storage('config');
         information = storage('information');
+
+        // Check if this is first visit
+        const isFirstVisit = !information.has('visited');
+
+        // Show guest name early for both first-time and returning visitors
+        showGuestName();
+
+        if (isFirstVisit) {
+            // Mark as visited for future visits
+            information.set('visited', true);
+            // Show loading screen for first-time visitors
+            progress.init();
+        } else {
+            // For returning visitors, skip loading screen
+            const loadingEl = document.getElementById('loading');
+            if (loadingEl) {
+                loadingEl.remove();
+            }
+
+            // Show welcome screen immediately for returning visitors
+            util.changeOpacity(document.getElementById('welcome'), true).then(() => {
+                animateSvg();
+                countDownDate();
+                modalImageClick();
+                normalizeArabicFont();
+                buildGoogleCalendar();
+
+                if (information.has('presence')) {
+                    document.getElementById('form-presence').value = information.get('presence') ? '1' : '2';
+                }
+
+                if (information.get('info')) {
+                    document.getElementById('information')?.remove();
+                }
+            });
+        }
 
         const vid = video.init();
         const img = image.init();
@@ -333,7 +367,12 @@ export const guest = (() => {
         const params = new URLSearchParams(window.location.search);
 
         window.addEventListener('resize', util.debounce(slide));
-        document.addEventListener('undangan.progress.done', () => booting());
+
+        if (isFirstVisit) {
+            // Only listen to progress.done for first-time visitors
+            document.addEventListener('undangan.progress.done', () => booting());
+        }
+
         document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
         document.getElementById('button-modal-download').addEventListener('click', (e) => {
             img.download(e.currentTarget.getAttribute('data-src'));

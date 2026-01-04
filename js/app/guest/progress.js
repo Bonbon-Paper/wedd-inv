@@ -39,13 +39,17 @@ export const progress = (() => {
      * @returns {void}
      */
     const complete = (type, skip = false) => {
-        if (!valid) {
+        if (!valid || !info) {
             return;
         }
 
         loaded += 1;
-        info.innerText = `Loading ${type} ${skip ? 'skipped' : 'complete'} ${showInformation()}`;
-        bar.style.width = Math.min((loaded / total) * 100, 100).toString() + '%';
+
+        // Update progress bar if it exists
+        if (bar) {
+            info.innerText = `Loading ${type} ${skip ? 'skipped' : 'complete'} ${showInformation()}`;
+            bar.style.width = Math.min((loaded / total) * 100, 100).toString() + '%';
+        }
 
         if (loaded === total) {
             valid = false;
@@ -59,6 +63,10 @@ export const progress = (() => {
      * @returns {void}
      */
     const invalid = (type) => {
+        if (!bar || !info) {
+            return;
+        }
+
         if (valid) {
             valid = false;
             bar.style.backgroundColor = 'red';
@@ -78,7 +86,9 @@ export const progress = (() => {
     const init = () => {
         info = document.getElementById('progress-info');
         bar = document.getElementById('progress-bar');
-        info.classList.remove('d-none');
+        if (info) {
+            info.classList.remove('d-none');
+        }
         cancelProgress = new Promise((res) => document.addEventListener('undangan.progress.invalid', res));
     };
 
