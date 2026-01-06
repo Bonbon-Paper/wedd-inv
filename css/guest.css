@@ -1,6 +1,20 @@
 @import url("common.css");
 @import url("animation.css");
 
+html[data-bs-theme="light"] {
+    --bs-body-color: #020001;
+    --bs-body-bg: #7E8C69;
+    color: #020001;
+    background-color: #7E8C69;
+}
+
+html[data-bs-theme="dark"] {
+    --bs-body-color: #EDE8DA;
+    --bs-body-bg: #7F6C53;
+    color: #EDE8DA;
+    background-color: #7F6C53;
+}
+
 html {
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
@@ -27,13 +41,13 @@ html {
     object-fit: cover;
 }
 
-html[data-bs-theme="dark"] .btn-transparent {
-    background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
+html[data-bs-theme="light"] .btn-transparent {
+    background-color: #7E8C6930 !important;
     backdrop-filter: blur(0.5rem);
 }
 
-html[data-bs-theme="light"] .btn-transparent {
-    background-color: rgba(var(--bs-light-rgb), 0.5) !important;
+html[data-bs-theme="dark"] .btn-transparent {
+    background-color: #7F6C5330 !important;
     backdrop-filter: blur(0.5rem);
 }
 
@@ -43,32 +57,57 @@ html[data-bs-theme="light"] .btn-transparent {
     width: 100%;
     height: 100%;
     z-index: 1056;
+    background-image: './assets/images/batik.jpeg';
 }
 
 html[data-bs-theme="light"] .color-theme-svg {
-    color: rgb(255, 255, 255);
-    background-color: var(--bs-light);
+    color: #9CAD8C;
+    background-color: #7E8C69;
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(0, 0, 0);
-    background-color: var(--bs-dark);
+    color: #62392E;
+    background-color: #7F6C53;
 }
 
 html[data-bs-theme="light"] .bg-light-dark {
-    background-color: rgb(var(--bs-light-rgb));
-}
-
-html[data-bs-theme="dark"] .bg-light-dark {
-    background-color: rgb(var(--bs-dark-rgb));
+    background-color: #7E8C69;
 }
 
 html[data-bs-theme="light"] .bg-white-black {
-    background-color: rgb(var(--bs-white-rgb));
+    background-color: #9CAD8C;
+}
+
+html[data-bs-theme="dark"] .bg-light-dark {
+    background-color: #7F6C53;
 }
 
 html[data-bs-theme="dark"] .bg-white-black {
-    background-color: rgb(var(--bs-black-rgb));
+    background-color: #62392E;
+}
+
+html[data-bs-theme="light"] .border-secondary {
+    border-color: #F1C8CB !important;
+}
+
+html[data-bs-theme="light"] .bg-secondary {
+    border-color: #F1C8CB !important;
+}
+
+html[data-bs-theme="light"] .text-secondary {
+    color: #F1C8CB !important;
+}
+
+html[data-bs-theme="dark"] .border-secondary {
+    border-color: #151412 !important;
+}
+
+html[data-bs-theme="dark"] .bg-secondary {
+    background-color: #151412 !important;
+}
+
+html[data-bs-theme="dark"] .text-secondary {
+    color: #151412 !important;
 }
 
 .bg-cover-home {

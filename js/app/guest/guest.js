@@ -182,9 +182,8 @@ export const guest = (() => {
      * @returns {void}
      */
     const modal = (img) => {
-        document.getElementById('button-modal-click').setAttribute('href', img.src);
-        document.getElementById('button-modal-download').setAttribute('data-src', img.src);
-
+        // document.getElementById('button-modal-click').setAttribute('href', img.src);
+        // document.getElementById('button-modal-download').setAttribute('data-src', img.src);
         const i = document.getElementById('show-modal-image');
         i.src = img.src;
         i.width = img.width;
@@ -196,13 +195,13 @@ export const guest = (() => {
      * @returns {void}
      */
     const modalImageClick = () => {
-        document.getElementById('show-modal-image').addEventListener('click', (e) => {
-            const abs = e.currentTarget.parentNode.querySelector('.position-absolute');
+        // document.getElementById('show-modal-image').addEventListener('click', (e) => {
+        //     const abs = e.currentTarget.parentNode.querySelector('.position-absolute');
 
-            abs.classList.contains('d-none')
-                ? abs.classList.replace('d-none', 'd-flex')
-                : abs.classList.replace('d-flex', 'd-none');
-        });
+        //     abs.classList.contains('d-none')
+        //         ? abs.classList.replace('d-none', 'd-flex')
+        //         : abs.classList.replace('d-flex', 'd-none');
+        // });
     };
 
     /**
@@ -248,7 +247,7 @@ export const guest = (() => {
      */
     const buildGoogleCalendar = () => {
         /**
-         * @param {string} d 
+         * @param {string} d
          * @returns {string}
          */
         const formatDate = (d) => (new Date(d.replace(' ', 'T') + ':00Z')).toISOString().replace(/[-:]/g, '').split('.').shift();
@@ -256,10 +255,10 @@ export const guest = (() => {
         const url = new URL('https://calendar.google.com/calendar/render');
         const data = new URLSearchParams({
             action: 'TEMPLATE',
-            text: 'The Wedding of Wahyu and Riski',
+            text: 'The Wedding of Riana & Iqbal',
             dates: `${formatDate('2023-03-15 10:00')}/${formatDate('2023-03-15 11:00')}`,
-            details: 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami. Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.',
-            location: 'RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.',
+            details: 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami.',
+            location: 'Stasiun Magetan, Jl. Jiwan - Bar. No.14, Karangsono, Kec. Bar., Kabupaten Magetan, Jawa Timur 63395',
             ctz: config.get('tz'),
         });
 
@@ -376,9 +375,9 @@ export const guest = (() => {
         }
 
         document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
-        document.getElementById('button-modal-download').addEventListener('click', (e) => {
-            img.download(e.currentTarget.getAttribute('data-src'));
-        });
+        // document.getElementById('button-modal-download').addEventListener('click', (e) => {
+        //     img.download(e.currentTarget.getAttribute('data-src'));
+        // });
 
         if (!token || token.length <= 0) {
             document.getElementById('comment')?.remove();
