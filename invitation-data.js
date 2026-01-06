@@ -22,8 +22,8 @@
 window.invitationData = {
     // ========== META & SEO ==========
     meta: {
-        pageTitle: "Website Undangan Pernikahan Iqbal dan Riana Secara Online",
-        description: "Website Undangan Pernikahan Iqbal dan Riana Secara Online",
+        pageTitle: "Undangan Pernikahan Riana & Iqbal",
+        description: "Perayaan pernikahan Riana dan Iqbal secara online.",
         keywords: "undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan",
         ogImage: "https://ulems.my.id/assets/images/bg.webp",
         ogUrl: "https://ulems.my.id",
@@ -33,7 +33,7 @@ window.invitationData = {
     // ========== COUPLE INFORMATION ==========
     couple: {
         // Combined short names (used in multiple places)
-        namesShort: "Iqbal & Riana",
+        namesShort: "Riana & Iqbal",
 
         // Groom information
         groom: {
@@ -232,16 +232,16 @@ window.invitationData = {
     // ========== WELCOME PAGE ==========
     welcome: {
         title: "The Wedding Of",
-        coupleNames: "Iqbal & Riana",
+        coupleNames: "Riana & Iqbal",
         guestGreeting: "Kepada Yth Bapak/Ibu/Saudara/i",
-        openButton: "Open Invitation"
+        openButton: "Buka Undangan"
     },
 
     // ========== UI ELEMENTS ==========
     ui: {
         home: {
             title: "Undangan Pernikahan",
-            saveCalendarButton: "Save Google Calendar",
+            saveCalendarButton: "Tambah ke Google Calendar",
             scrollText: "Scroll Down"
         },
 
