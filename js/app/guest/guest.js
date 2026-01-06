@@ -316,6 +316,15 @@ export const guest = (() => {
      * @returns {void}
      */
     const pageLoaded = () => {
+        // Set random song before any audio initialization
+        const songs = [
+            './assets/music/the_cranberries-linger.mp3',
+            './assets/music/eleventwelfth-your_head_as_my_favourite_bookstore.mp3',
+            './assets/music/pure-love-304010.mp3'
+        ];
+        const randomSong = songs[Math.floor(Math.random() * songs.length)];
+        document.body.setAttribute('data-audio', randomSong);
+
         lang.init();
         offline.init();
         invitation.init();
