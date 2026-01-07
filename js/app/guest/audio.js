@@ -30,6 +30,7 @@ export const audio = (() => {
             audioEl.muted = false;
             audioEl.autoplay = false;
             audioEl.controls = false;
+            audioEl.volume = 0.01; // Set volume to 1%
 
             progress.complete('audio');
         } catch {

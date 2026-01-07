@@ -160,6 +160,15 @@ export const guest = (() => {
      */
     const open = (button) => {
         button.disabled = true;
+
+        // Ensure audio plays after user interaction
+        const audioElement = document.querySelector('audio');
+        if (audioElement) {
+            audioElement.play().catch((error) => {
+                console.warn('[Audio] Playback failed:', error);
+            });
+        }
+
         document.body.scrollIntoView({ behavior: 'instant' });
         document.getElementById('root').classList.remove('opacity-0');
 
