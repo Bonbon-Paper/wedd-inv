@@ -325,13 +325,27 @@ export const guest = (() => {
      * @returns {void}
      */
     const pageLoaded = () => {
-        // Set random song before any audio initialization
+        // Set random song before any audio initialization (avoid repeating last song)
         const songs = [
             './assets/music/eleventwelfth-your_head_as_my_favourite_bookstore.mp3',
             './assets/music/the_cranberries-linger.mp3',
             './assets/music/radwimps-zenzenzense.mp3'
         ];
-        const randomSong = songs[Math.floor(Math.random() * songs.length)];
+
+        // Get last played song from localStorage
+        const lastSong = localStorage.getItem('lastSong');
+
+        // Filter out the last played song if we have more than one option
+        const availableSongs = songs.length > 1 && lastSong
+            ? songs.filter(song => song !== lastSong)
+            : songs;
+
+        // Pick a random song from available songs
+        const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
+
+        // Save for next time
+        localStorage.setItem('lastSong', randomSong);
+
         document.body.setAttribute('data-audio', randomSong);
 
         lang.init();
