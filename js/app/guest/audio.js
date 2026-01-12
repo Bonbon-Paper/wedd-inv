@@ -30,7 +30,10 @@ export const audio = (() => {
             audioEl.muted = false;
             audioEl.autoplay = false;
             audioEl.controls = false;
-            audioEl.volume = 0.05; // Set volume to 5%
+
+            // Get volume from data attribute, default to 5% if not set
+            const volumeAttr = document.body.getAttribute('data-audio-volume');
+            audioEl.volume = volumeAttr ? parseFloat(volumeAttr) : 0.30;
 
             progress.complete('audio');
         } catch {
