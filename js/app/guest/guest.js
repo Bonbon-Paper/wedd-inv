@@ -327,9 +327,7 @@ export const guest = (() => {
     const pageLoaded = () => {
         // Set random song before any audio initialization (avoid repeating last song)
         const songs = [
-            { url: './assets/music/eleventwelfth-your_head_as_my_favourite_bookstore.mp3', volume: 0.20 },  // 20%
             { url: './assets/music/the_cranberries-dreams_acoustic.mp3', volume: 0.70 },  // 70%
-            { url: './assets/music/radwimps-zenzenzense.mp3', volume: 0.08 }  // 8%
         ];
 
         // Get last played song from localStorage
