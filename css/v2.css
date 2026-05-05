@@ -34,7 +34,7 @@ body {
    text stays anchored to the same spot at any viewport size. */
 .v2-overlay {
   position: absolute;
-  left: 10%;
+  left: 14%;
   top: 55%;
   transform: translate(-50%, -50%);
   color: #2d1a0a;
