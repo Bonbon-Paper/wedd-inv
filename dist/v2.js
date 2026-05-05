@@ -1,0 +1,1 @@
+(()=>{((n,l)=>{let e=n.location.search.split("to="),t=null;e.length>1&&e[1].length>=1&&(t=n.decodeURIComponent(e[1]));let o=l.getElementById("guest-name");o&&t&&(o.textContent=t)})(window,document);})();

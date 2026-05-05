@@ -1,0 +1,46 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  min-height: 100%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.v2-stage {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.v2-bg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+/* Overlay coordinates are percentages of the stage so the
+   text stays anchored to the same spot at any viewport size. */
+.v2-overlay {
+  position: absolute;
+  left: 10%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  color: #2d1a0a;
+  font-size: 2.4vmin;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
